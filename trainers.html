@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Trainers | Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<!-- Page Banner -->
+
+<section class="page-banner">
+    <div class="section-heading">
+        <p class="section-tag">MEET OUR TEAM</p>
+        <h1>OUR <span>TRAINERS</span></h1>
+        <p>Guidance for your fitness journey.</p>
+    </div>
+</section>
+
+<!-- Trainers Section -->
+
+<section class="section">
+    <div class="section-heading">
+        <p class="section-tag">FITNESS GUIDANCE</p>
+        <h2>TRAINING <span>SUPPORT</span></h2>
+        <p>
+            Get in touch with Kakde Fitness to learn
+            about trainer availability and guidance.
+        </p>
+    </div>
+
+```
+<div class="card-container">
+
+    <div class="feature-card">
+        <div class="trainer-icon">🏋️</div>
+        <h3>Strength Training</h3>
+        <p>
+            Learn about strength exercises and
+            suitable workout techniques.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="trainer-icon">💪</div>
+        <h3>Personal Training</h3>
+        <p>
+            Ask about personal training options
+            and available guidance.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="trainer-icon">🎯</div>
+        <h3>Fitness Guidance</h3>
+        <p>
+            Get guidance to help you follow
+            a consistent workout routine.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- Contact Section -->
+
+<section class="section">
+    <div class="section-heading">
+        <h2>WANT TO KNOW MORE?</h2>
+        <p>
+            Contact the gym for information about
+            trainers and personal training services.
+        </p>
+
+```
+    <a href="{{ url_for('contact') }}" class="btn">
+        Contact Us
+    </a>
+</div>
+```
+
+</section>
+
+{% endblock %}

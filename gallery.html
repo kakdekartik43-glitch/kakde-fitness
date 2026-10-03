@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery | Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<!-- Page Banner -->
+
+<section class="page-banner">
+    <div class="section-heading">
+        <p class="section-tag">OUR GYM</p>
+        <h1>FITNESS <span>GALLERY</span></h1>
+        <p>Explore the Kakde Fitness experience.</p>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+
+<section class="section">
+    <div class="section-heading">
+        <p class="section-tag">PHOTO COLLECTION</p>
+        <h2>OUR <span>GALLERY</span></h2>
+    </div>
+
+```
+<div class="gallery-grid">
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600"
+             alt="Gym interior">
+        <h3>Gym Interior</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600"
+             alt="Weight training">
+        <h3>Weight Training</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600"
+             alt="Fitness workout">
+        <h3>Fitness Workout</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600"
+             alt="Workout session">
+        <h3>Workout Session</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=600"
+             alt="Gym exercise">
+        <h3>Gym Exercise</h3>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600"
+             alt="Strength workout">
+        <h3>Strength Workout</h3>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- Contact -->
+
+<section class="section">
+    <div class="section-heading">
+        <h2>VISIT <span>OUR GYM</span></h2>
+        <p>Contact us to know more about Kakde Fitness.</p>
+
+```
+    <a href="{{ url_for('contact') }}" class="btn">
+        Contact Us
+    </a>
+</div>
+```
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Facilities | Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<!-- Page Banner -->
+
+<section class="page-banner">
+    <div class="section-heading">
+        <p class="section-tag">TRAIN WITH US</p>
+        <h1>OUR <span>FACILITIES</span></h1>
+        <p>Explore the fitness facilities at Kakde Fitness.</p>
+    </div>
+</section>
+
+<!-- Facilities -->
+
+<section class="section">
+    <div class="section-heading">
+        <p class="section-tag">WHAT WE OFFER</p>
+        <h2>FITNESS <span>FACILITIES</span></h2>
+    </div>
+
+```
+<div class="card-container">
+
+    <div class="feature-card">
+        <h3>Weight Training</h3>
+        <p>
+            Strength training exercises to help you
+            work towards your fitness goals.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Cardio Workouts</h3>
+        <p>
+            Cardio exercise options for your regular
+            fitness routine.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Personal Training</h3>
+        <p>
+            Personal workout guidance to help you
+            understand and follow your exercises.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Fitness Guidance</h3>
+        <p>
+            Guidance to help you build a suitable
+            and consistent workout routine.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Goal-Based Workouts</h3>
+        <p>
+            Workouts planned around your individual
+            fitness goals.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h3>Supportive Environment</h3>
+        <p>
+            A welcoming environment for people
+            working towards their fitness goals.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- Contact -->
+
+<section class="section">
+    <div class="section-heading">
+        <h2>HAVE <span>QUESTIONS?</span></h2>
+        <p>Contact the gym to confirm facility availability.</p>
+
+```
+    <a href="{{ url_for('contact') }}" class="btn">
+        Contact Us
+    </a>
+</div>
+```
+
+</section>
+
+{% endblock %}

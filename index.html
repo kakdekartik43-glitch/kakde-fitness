@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kakde Fitness gym in Narhe, Pune. Explore membership plans, facilities and contact details.">
+    <title>Kakde Fitness | Build Your Strength</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <a href="#home" class="logo">KAKDE<span>FITNESS</span></a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+
+        <nav id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#plans">Plans</a>
+            <a href="#trainers">Trainers</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO KAKDE FITNESS</p>
+                <h1>BUILD YOUR<br><span>STRENGTH</span></h1>
+                <p class="hero-description">
+                    Start your fitness journey with the right environment,
+                    supportive trainers and a plan that works for you.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#plans" class="btn btn-primary">Explore Plans</a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                YOUR FITNESS. YOUR JOURNEY.
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section about" id="about">
+            <div class="section-heading">
+                <p class="eyebrow">WHO WE ARE</p>
+                <h2>ABOUT <span>OUR GYM</span></h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900"
+                        alt="Modern gym interior"
+                        loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h3>Make fitness part of your lifestyle.</h3>
+                    <p>
+                        Welcome to Kakde Fitness, located near Zeal Chowk,
+                        Narhe, Pune. Our goal is to provide a welcoming
+                        fitness environment for people with different
+                        fitness goals and experience levels.
+                    </p>
+                    <p>
+                        Whether you are starting your fitness journey or
+                        continuing your training, we are here to support you.
+                    </p>
+                    <a href="#facilities" class="text-link">Explore our facilities →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities -->
+        <section class="section facilities" id="facilities">
+            <div class="section-heading">
+                <p class="eyebrow">TRAIN YOUR WAY</p>
+                <h2>OUR <span>FACILITIES</span></h2>
+                <p>Explore the facilities available at our gym.</p>
+            </div>
+
+            <div class="facility-grid">
+                <article class="facility-card">
+                    <div class="facility-icon">🏋️</div>
+                    <h3>Weight Training</h3>
+                    <p>Strength training equipment for your workouts.</p>
+                </article>
+
+                <article class="facility-card">
+                    <div class="facility-icon">🏃</div>
+                    <h3>Cardio</h3>
+                    <p>Cardio activities to support your fitness routine.</p>
+                </article>
+
+                <article class="facility-card">
+                    <div class="facility-icon">💪</div>
+                    <h3>Personal Training</h3>
+                    <p>Training guidance to help you work toward your goals.</p>
+                </article>
+
+                <article class="facility-card">
+                    <div class="facility-icon">🧘</div>
+                    <h3>Fitness Guidance</h3>
+                    <p>Support for building a consistent fitness routine.</p>
+                </article>
+
+                <article class="facility-card">
+                    <div class="facility-icon">🤝</div>
+                    <h3>Supportive Environment</h3>
+                    <p>A friendly space for your fitness journey.</p>
+                </article>
+
+                <article class="facility-card">
+                    <div class="facility-icon">🎯</div>
+                    <h3>Goal-Based Workouts</h3>
+                    <p>Choose a routine that fits your personal goals.</p>
+                </article>
+            </div>
+            <p class="small-note">
+                Note: Update these facility details to match the actual gym.
+            </p>
+        </section>
+
+        <!-- Membership -->
+        <section class="section plans" id="plans">
+            <div class="section-heading">
+                <p class="eyebrow">CHOOSE YOUR PLAN</p>
+                <h2>MEMBERSHIP <span>PLANS</span></h2>
+                <p>Choose a membership that suits your schedule.</p>
+            </div>
+
+            <div class="plan-grid">
+                <article class="plan-card">
+                    <p class="plan-duration">01 MONTH</p>
+                    <h3>Monthly Plan</h3>
+                    <div class="plan-price">₹1,000 <span>/ month</span></div>
+                    <ul>
+                        <li>Gym access for one month</li>
+                        <li>Use of available facilities</li>
+                        <li>Fitness environment</li>
+                    </ul>
+                    <a class="btn btn-outline plan-button"
+                       href="https://wa.me/918999250652?text=Hello%20Kakde%20Fitness%2C%20I%20want%20to%20enquire%20about%20the%20monthly%20plan."
+                       target="_blank" rel="noopener">Enquire Now</a>
+                </article>
+
+                <article class="plan-card featured">
+                    <div class="popular-label">POPULAR</div>
+                    <p class="plan-duration">06 MONTHS</p>
+                    <h3>Half-Year Plan</h3>
+                    <div class="plan-price">₹5,000 <span>/ 6 months</span></div>
+                    <ul>
+                        <li>Gym access for six months</li>
+                        <li>Use of available facilities</li>
+                        <li>Build a consistent routine</li>
+                    </ul>
+                    <a class="btn btn-primary plan-button"
+                       href="https://wa.me/918999250652?text=Hello%20Kakde%20Fitness%2C%20I%20want%20to%20enquire%20about%20the%206-month%20plan."
+                       target="_blank" rel="noopener">Enquire Now</a>
+                </article>
+
+                <article class="plan-card">
+                    <p class="plan-duration">12 MONTHS</p>
+                    <h3>Yearly Plan</h3>
+                    <div class="plan-price">₹10,000 <span>/ year</span></div>
+                    <ul>
+                        <li>Gym access for one year</li>
+                        <li>Use of available facilities</li>
+                        <li>Long-term fitness routine</li>
+                    </ul>
+                    <a class="btn btn-outline plan-button"
+                       href="https://wa.me/918999250652?text=Hello%20Kakde%20Fitness%2C%20I%20want%20to%20enquire%20about%20the%20yearly%20plan."
+                       target="_blank" rel="noopener">Enquire Now</a>
+                </article>
+            </div>
+            <p class="small-note">Membership prices are shown as provided. Confirm terms with the gym.</p>
+        </section>
+
+        <!-- Trainers -->
+        <section class="section trainers" id="trainers">
+            <div class="section-heading">
+                <p class="eyebrow">MEET THE TEAM</p>
+                <h2>OUR <span>TRAINERS</span></h2>
+                <p>Meet the people who can guide your training.</p>
+            </div>
+
+            <div class="trainer-grid">
+                <article class="trainer-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1569252325-6d4a7b3b5b4b?w=600"
+                        alt="Trainer placeholder"
+                        loading="lazy">
+                    <div class="trainer-info">
+                        <h3>Trainer Name</h3>
+                        <p>Fitness Trainer</p>
+                    </div>
+                </article>
+
+                <article class="trainer-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600"
+                        alt="Trainer placeholder"
+                        loading="lazy">
+                    <div class="trainer-info">
+                        <h3>Trainer Name</h3>
+                        <p>Strength Trainer</p>
+                    </div>
+                </article>
+            </div>
+            <p class="small-note">
+                Demo images and names: replace these with actual trainer details.
+            </p>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section gallery" id="gallery">
+            <div class="section-heading">
+                <p class="eyebrow">INSIDE THE GYM</p>
+                <h2>FITNESS <span>GALLERY</span></h2>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700"
+                     alt="Gym interior" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=700"
+                     alt="Gym training" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=700"
+                     alt="Fitness equipment" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700"
+                     alt="Strength training" loading="lazy">
+            </div>
+            <p class="small-note">Gallery images are examples, not actual Kakde Fitness photos.</p>
+        </section>
+
+        <!-- Opening Hours -->
+        <section class="hours-section">
+            <div>
+                <p class="eyebrow">PLAN YOUR VISIT</p>
+                <h2>GYM <span>TIMINGS</span></h2>
+            </div>
+            <div class="hours-list">
+                <div><span>Morning</span><strong>5:00 AM – 11:00 AM</strong></div>
+                <div><span>Evening</span><strong>5:00 PM – 10:00 PM</strong></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section contact" id="contact">
+            <div class="section-heading">
+                <p class="eyebrow">GET IN TOUCH</p>
+                <h2>CONTACT <span>US</span></h2>
+                <p>Have a question about membership? Contact us.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <h3>Our Location</h3>
+                            <p>Narhe Gaon, near Zeal Chowk, Pune</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p><a href="tel:8999250652">8999250652</a></p>
+                            <p><a href="tel:9767910652">9767910652</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>🕒</span>
+                        <div>
+                            <h3>Opening Hours</h3>
+                            <p>Morning: 5 AM – 11 AM</p>
+                            <p>Evening: 5 PM – 10 PM</p>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary contact-whatsapp"
+                       href="https://wa.me/918999250652?text=Hello%20Kakde%20Fitness%2C%20I%20have%20a%20question."
+                       target="_blank" rel="noopener">Message on WhatsApp</a>
+                </div>
+
+                <div class="map-placeholder">
+                    <div class="map-icon">📍</div>
+                    <h3>Kakde Fitness</h3>
+                    <p>Narhe Gaon, near Zeal Chowk, Pune</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Zeal+Chowk+Narhe+Pune"
+                       target="_blank" rel="noopener">Open in Google Maps ↗</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#home" class="logo">KAKDE<span>FITNESS</span></a>
+        <p>Build your strength. Build your routine.</p>
+        <p class="copyright">© 2026 Kakde Fitness. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating AI Agent -->
+    <div id="chatbot">
+        <div id="chat-label">Gym AI Agent</div>
+
+        <button id="chat-launcher" onclick="openChat()" aria-label="Open AI chat">
+            <span>✦</span>
+        </button>
+
+        <div id="chat-panel" class="hidden">
+            <div id="chat-header">
+                <div class="chat-brand">
+                    <div class="ai-logo">✦</div>
+                    <div>
+                        <strong>Gym AI Agent</strong>
+                        <small>Ask us anything</small>
+                    </div>
+                </div>
+                <div class="chat-controls">
+                    <button onclick="minimizeChat()" aria-label="Minimize chat">−</button>
+                    <button onclick="closeChat()" aria-label="Close chat">×</button>
+                </div>
+            </div>
+
+            <div id="chat-window">
+                <div id="messages">
+                    <div class="bot-message">
+                        <div class="message-logo">✦</div>
+                        <div class="message-bubble">
+                            Hello! 👋 Welcome to Kakde Fitness.
+                            How can I help you today?
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quick-actions">
+                    <button onclick="askQuickQuestion('What are your membership plans?')">Plans</button>
+                    <button onclick="askQuickQuestion('What are your gym timings?')">Timings</button>
+                    <button onclick="askQuickQuestion('Where is your gym located?')">Location</button>
+                </div>
+            </div>
+
+            <form id="chat-form">
+                <input type="text" id="user-input"
+                       placeholder="Type your message..." autocomplete="off">
+                <button type="submit" aria-label="Send message">➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

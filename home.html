@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="eyebrow">WELCOME TO KAKDE FITNESS</p>
+
+```
+    <h1>
+        BUILD YOUR
+        <span>STRENGTH</span>
+    </h1>
+
+    <p class="hero-description">
+        Start your fitness journey with the right environment,
+        supportive trainers and a plan that works for you.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="{{ url_for('plans') }}" class="btn btn-primary">
+            Explore Plans
+        </a>
+
+        <a href="{{ url_for('contact') }}" class="btn btn-outline">
+            Contact Us
+        </a>
+    </div>
+</div>
+
+<div class="hero-tag">
+    <span class="tag-dot"></span>
+    YOUR FITNESS. YOUR JOURNEY.
+</div>
+```
+
+</section>
+
+{% endblock %}

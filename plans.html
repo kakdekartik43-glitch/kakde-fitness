@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Membership Plans | Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<!-- Page Banner -->
+
+<section class="page-banner">
+    <div class="section-heading">
+        <p class="section-tag">JOIN KAKDE FITNESS</p>
+        <h1>MEMBERSHIP <span>PLANS</span></h1>
+        <p>Choose a membership plan for your fitness journey.</p>
+    </div>
+</section>
+
+<!-- Membership Plans -->
+
+<section class="section">
+    <div class="section-heading">
+        <p class="section-tag">OUR PRICING</p>
+        <h2>CHOOSE YOUR <span>PLAN</span></h2>
+    </div>
+
+```
+<div class="card-container">
+
+    <!-- Monthly Plan -->
+    <div class="plan-card">
+        <h3>Monthly Plan</h3>
+        <h2>₹1000</h2>
+        <p>Per Month</p>
+
+        <ul>
+            <li>1 Month Membership</li>
+            <li>Gym Access</li>
+            <li>Fitness Guidance</li>
+        </ul>
+
+        <a href="{{ url_for('contact') }}" class="btn">
+            Join Now
+        </a>
+    </div>
+
+    <!-- Six Month Plan -->
+    <div class="plan-card">
+        <h3>6 Month Plan</h3>
+        <h2>₹5000</h2>
+        <p>For 6 Months</p>
+
+        <ul>
+            <li>6 Months Membership</li>
+            <li>Gym Access</li>
+            <li>Fitness Guidance</li>
+        </ul>
+
+        <a href="{{ url_for('contact') }}" class="btn">
+            Join Now
+        </a>
+    </div>
+
+    <!-- Yearly Plan -->
+    <div class="plan-card">
+        <h3>Yearly Plan</h3>
+        <h2>₹10000</h2>
+        <p>For 12 Months</p>
+
+        <ul>
+            <li>12 Months Membership</li>
+            <li>Gym Access</li>
+            <li>Fitness Guidance</li>
+        </ul>
+
+        <a href="{{ url_for('contact') }}" class="btn">
+            Join Now
+        </a>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- Important Information -->
+
+<section class="section">
+    <div class="section-heading">
+        <h2>NEED MORE <span>INFORMATION?</span></h2>
+        <p>
+            Contact Kakde Fitness to confirm membership
+            details and available facilities.
+        </p>
+
+```
+    <a href="{{ url_for('contact') }}" class="btn">
+        Contact Us
+    </a>
+</div>
+```
+
+</section>
+
+{% endblock %}
