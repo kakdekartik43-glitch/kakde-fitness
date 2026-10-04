@@ -98,7 +98,7 @@ Customer question:
 
     try:
         response = requests.post(
-            "http://127.0.0.1:11434/api/generate",
+            AQ.Ab8RN6JN5FeMyasav4oQaitaVudJMLb_h8WidkY5IyI0jSIK3g,
             json={
                 "model": "llama3.2:3b",
                 "prompt": prompt,
