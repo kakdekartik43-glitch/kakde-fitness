@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Gym information
+# Gym Information
 GYM_NAME = "Kakde Fitness"
 LOCATION = "Narhe Gaon, near Zeal Chowk, Pune"
 PHONE_1 = "8999250652"
@@ -22,7 +22,7 @@ Morning: 5:00 AM to 11:00 AM
 Evening: 5:00 PM to 10:00 PM
 """
 
-# Website pages
+# Website Pages
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -97,16 +97,15 @@ Customer question:
 {user_message}
 """
 
-    # Get Gemini API key from Render environment
-    api_key = os.environ.get("GEMINI_API_KEY")
+    # Read API key securely from environment
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
 
     if not api_key:
-        print("GEMINI_API_KEY is missing")
+        print("Gemini API error: GEMINI_API_KEY is missing")
         return jsonify({
             "reply": "AI service is not configured."
         }), 503
 
-    # Gemini API URL
     url = (
         "https://generativelanguage.googleapis.com/"
         "v1beta/models/gemini-2.5-flash:generateContent"
@@ -131,16 +130,30 @@ Customer question:
             timeout=60
         )
 
-        response.raise_for_status()
+        # Log API response for debugging
+        print("Gemini status:", response.status_code)
+
+        if not response.ok:
+            print("Gemini response:", response.text[:2000])
+            response.raise_for_status()
+
         result = response.json()
 
-        answer = (
-            result.get("candidates", [{}])[0]
-            .get("content", {})
-            .get("parts", [{}])[0]
-            .get("text", "")
-            .strip()
-        )
+        candidates = result.get("candidates", [])
+
+        if not candidates:
+            print("Gemini response has no candidates:", result)
+            return jsonify({
+                "reply": "Sorry, the AI could not generate an answer."
+            }), 502
+
+        parts = candidates[0].get("content", {}).get("parts", [])
+
+        answer = " ".join(
+            part.get("text", "")
+            for part in parts
+            if part.get("text")
+        ).strip()
 
         if not answer:
             answer = "Sorry, I could not prepare an answer."
@@ -149,14 +162,20 @@ Customer question:
             "reply": answer
         })
 
-    except requests.RequestException as error:
-        print("Gemini API error:", error)
+    except requests.HTTPError as error:
+        print("Gemini HTTP error:", error)
         return jsonify({
-            "reply": "AI service is unavailable. Please try again."
+            "reply": "AI service rejected the request. Please try again."
+        }), 503
+
+    except requests.RequestException as error:
+        print("Gemini connection error:", error)
+        return jsonify({
+            "reply": "Sorry, I could not connect to the AI. Please try again."
         }), 503
 
     except (ValueError, KeyError, IndexError, TypeError) as error:
-        print("AI response error:", error)
+        print("Gemini response error:", error)
         return jsonify({
             "reply": "Sorry, I received an invalid response from the AI."
         }), 500
@@ -164,4 +183,4 @@ Customer question:
 
 # Run Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
