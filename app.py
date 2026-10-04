@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, request, jsonify
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -57,7 +58,7 @@ def contact():
     return render_template("contact.html")
 
 
-# AI Chatbot
+# AI Chatbot using Gemini
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json(silent=True) or {}
@@ -96,41 +97,71 @@ Customer question:
 {user_message}
 """
 
+    # Get Gemini API key from Render environment
+    api_key = os.environ.get("GEMINI_API_KEY")
+
+    if not api_key:
+        print("GEMINI_API_KEY is missing")
+        return jsonify({
+            "reply": "AI service is not configured."
+        }), 503
+
+    # Gemini API URL
+    url = (
+        "https://generativelanguage.googleapis.com/"
+        "v1beta/models/gemini-2.5-flash:generateContent"
+    )
+
     try:
         response = requests.post(
-            AQ.Ab8RN6JN5FeMyasav4oQaitaVudJMLb_h8WidkY5IyI0jSIK3g,
-            json={
-                "model": "llama3.2:3b",
-                "prompt": prompt,
-                "stream": False
+            url,
+            headers={
+                "x-goog-api-key": api_key,
+                "Content-Type": "application/json"
             },
-            timeout=120
+            json={
+                "contents": [
+                    {
+                        "parts": [
+                            {"text": prompt}
+                        ]
+                    }
+                ]
+            },
+            timeout=60
         )
 
         response.raise_for_status()
-
         result = response.json()
-        answer = result.get("response", "").strip()
+
+        answer = (
+            result.get("candidates", [{}])[0]
+            .get("content", {})
+            .get("parts", [{}])[0]
+            .get("text", "")
+            .strip()
+        )
 
         if not answer:
             answer = "Sorry, I could not prepare an answer."
 
-        return jsonify({"reply": answer})
+        return jsonify({
+            "reply": answer
+        })
 
     except requests.RequestException as error:
-        print("Ollama connection error:", error)
-
+        print("Gemini API error:", error)
         return jsonify({
-            "reply": "AI service is unavailable. Please check whether Ollama is running."
+            "reply": "AI service is unavailable. Please try again."
         }), 503
 
-    except (ValueError, KeyError) as error:
+    except (ValueError, KeyError, IndexError, TypeError) as error:
         print("AI response error:", error)
-
         return jsonify({
             "reply": "Sorry, I received an invalid response from the AI."
         }), 500
 
 
+# Run Flask app
 if __name__ == "__main__":
     app.run(debug=True)
