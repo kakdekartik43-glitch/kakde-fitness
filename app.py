@@ -27,38 +27,32 @@ Evening: 5:00 PM to 10:00 PM
 def home():
     return render_template("home.html")
 
-
 @app.route("/about")
 def about():
     return render_template("about.html")
-
 
 @app.route("/facilities")
 def facilities():
     return render_template("facilities.html")
 
-
 @app.route("/plans")
 def plans():
     return render_template("plans.html")
-
 
 @app.route("/trainers")
 def trainers():
     return render_template("trainers.html")
 
-
 @app.route("/gallery")
 def gallery():
     return render_template("gallery.html")
-
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
 
-# AI Chatbot using Gemini
+# AI Chatbot using Groq
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json(silent=True) or {}
@@ -68,6 +62,14 @@ def chat():
         return jsonify({
             "reply": "Please type your question."
         }), 400
+
+    api_key = os.environ.get("GROQ_API_KEY", "").strip()
+
+    if not api_key:
+        print("Error: GROQ_API_KEY is missing")
+        return jsonify({
+            "reply": "AI service is not configured."
+        }), 503
 
     prompt = f"""
 You are the friendly AI assistant for {GYM_NAME}.
@@ -97,63 +99,50 @@ Customer question:
 {user_message}
 """
 
-    # Read API key securely from environment
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-
-    if not api_key:
-        print("Gemini API error: GEMINI_API_KEY is missing")
-        return jsonify({
-            "reply": "AI service is not configured."
-        }), 503
-
-    url = (
-        "https://generativelanguage.googleapis.com/"
-        "v1beta/models/gemini-2.5-flash:generateContent"
-    )
+    url = "https://api.groq.com/openai/v1/chat/completions"
 
     try:
         response = requests.post(
             url,
             headers={
-                "x-goog-api-key": api_key,
+                "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json"
             },
             json={
-                "contents": [
+                "model": "llama-3.3-70b-versatile",
+                "messages": [
                     {
-                        "parts": [
-                            {"text": prompt}
-                        ]
+                        "role": "user",
+                        "content": prompt
                     }
-                ]
+                ],
+                "temperature": 0.5,
+                "max_tokens": 500
             },
             timeout=60
         )
 
-        # Log API response for debugging
-        print("Gemini status:", response.status_code)
+        print("Groq status:", response.status_code)
 
         if not response.ok:
-            print("Gemini response:", response.text[:2000])
+            print("Groq response:", response.text[:2000])
             response.raise_for_status()
 
         result = response.json()
+        choices = result.get("choices", [])
 
-        candidates = result.get("candidates", [])
-
-        if not candidates:
-            print("Gemini response has no candidates:", result)
+        if not choices:
+            print("Groq returned no choices:", result)
             return jsonify({
                 "reply": "Sorry, the AI could not generate an answer."
             }), 502
 
-        parts = candidates[0].get("content", {}).get("parts", [])
-
-        answer = " ".join(
-            part.get("text", "")
-            for part in parts
-            if part.get("text")
-        ).strip()
+        answer = (
+            choices[0]
+            .get("message", {})
+            .get("content", "")
+            .strip()
+        )
 
         if not answer:
             answer = "Sorry, I could not prepare an answer."
@@ -163,19 +152,19 @@ Customer question:
         })
 
     except requests.HTTPError as error:
-        print("Gemini HTTP error:", error)
+        print("Groq HTTP error:", error)
         return jsonify({
             "reply": "AI service rejected the request. Please try again."
         }), 503
 
     except requests.RequestException as error:
-        print("Gemini connection error:", error)
+        print("Groq connection error:", error)
         return jsonify({
             "reply": "Sorry, I could not connect to the AI. Please try again."
         }), 503
 
     except (ValueError, KeyError, IndexError, TypeError) as error:
-        print("Gemini response error:", error)
+        print("Groq response error:", error)
         return jsonify({
             "reply": "Sorry, I received an invalid response from the AI."
         }), 500
