@@ -1,1 +1,89 @@
+{% extends "base.html" %}
 
+{% block title %}Book Trial - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="form-card">
+
+        <h1>Book Your Free Trial</h1>
+
+        <p>
+            Visit Kakde Fitness and experience our gym.
+        </p>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <label>
+                Select Date
+            </label>
+
+            <input
+                type="date"
+                name="booking_date"
+                required
+            >
+
+            <select name="booking_type">
+
+                <option value="Free Trial">
+                    Free Trial
+                </option>
+
+                <option value="Gym Visit">
+                    Gym Visit
+                </option>
+
+                <option value="Personal Training">
+                    Personal Training Enquiry
+                </option>
+
+            </select>
+
+            <select name="plan">
+
+                <option value="">
+                    Select Membership Plan
+                </option>
+
+                <option value="Monthly">
+                    Monthly - Rs. 1000
+                </option>
+
+                <option value="6 Months">
+                    6 Months - Rs. 5000
+                </option>
+
+                <option value="Yearly">
+                    Yearly - Rs. 10000
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Submit Booking
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}
