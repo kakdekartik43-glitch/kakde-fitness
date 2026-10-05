@@ -22,63 +22,60 @@
         <h2>CHOOSE YOUR <span>PLAN</span></h2>
     </div>
 
-```
-<div class="card-container">
+    <div class="card-container">
 
-    <!-- Monthly Plan -->
-    <div class="plan-card">
-        <h3>Monthly Plan</h3>
-        <h2>₹1000</h2>
-        <p>Per Month</p>
+        <!-- Monthly Plan -->
+        <div class="plan-card">
+            <h3>Monthly Plan</h3>
+            <h2>₹1000</h2>
+            <p>Per Month</p>
 
-        <ul>
-            <li>1 Month Membership</li>
-            <li>Gym Access</li>
-            <li>Fitness Guidance</li>
-        </ul>
+            <ul>
+                <li>1 Month Membership</li>
+                <li>Gym Access</li>
+                <li>Fitness Guidance</li>
+            </ul>
 
-        <a href="{{ url_for('contact') }}" class="btn">
-            Join Now
-        </a>
+            <a href="{{ url_for('join_plan', plan='monthly') }}" class="btn">
+                Join Now
+            </a>
+        </div>
+
+        <!-- Six Month Plan -->
+        <div class="plan-card">
+            <h3>6 Month Plan</h3>
+            <h2>₹5000</h2>
+            <p>For 6 Months</p>
+
+            <ul>
+                <li>6 Months Membership</li>
+                <li>Gym Access</li>
+                <li>Fitness Guidance</li>
+            </ul>
+
+            <a href="{{ url_for('join_plan', plan='six-month') }}" class="btn">
+                Join Now
+            </a>
+        </div>
+
+        <!-- Yearly Plan -->
+        <div class="plan-card">
+            <h3>Yearly Plan</h3>
+            <h2>₹10000</h2>
+            <p>For 12 Months</p>
+
+            <ul>
+                <li>12 Months Membership</li>
+                <li>Gym Access</li>
+                <li>Fitness Guidance</li>
+            </ul>
+
+            <a href="{{ url_for('join_plan', plan='yearly') }}" class="btn">
+                Join Now
+            </a>
+        </div>
+
     </div>
-
-    <!-- Six Month Plan -->
-    <div class="plan-card">
-        <h3>6 Month Plan</h3>
-        <h2>₹5000</h2>
-        <p>For 6 Months</p>
-
-        <ul>
-            <li>6 Months Membership</li>
-            <li>Gym Access</li>
-            <li>Fitness Guidance</li>
-        </ul>
-
-        <a href="{{ url_for('contact') }}" class="btn">
-            Join Now
-        </a>
-    </div>
-
-    <!-- Yearly Plan -->
-    <div class="plan-card">
-        <h3>Yearly Plan</h3>
-        <h2>₹10000</h2>
-        <p>For 12 Months</p>
-
-        <ul>
-            <li>12 Months Membership</li>
-            <li>Gym Access</li>
-            <li>Fitness Guidance</li>
-        </ul>
-
-        <a href="{{ url_for('contact') }}" class="btn">
-            Join Now
-        </a>
-    </div>
-
-</div>
-```
-
 </section>
 
 <!-- Important Information -->
@@ -91,13 +88,10 @@
             details and available facilities.
         </p>
 
-```
-    <a href="{{ url_for('contact') }}" class="btn">
-        Contact Us
-    </a>
-</div>
-```
-
+        <a href="{{ url_for('contact') }}" class="btn">
+            Contact Us
+        </a>
+    </div>
 </section>
 
 {% endblock %}
