@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="content-page">
+
+    <h1>Admin Panel</h1>
+
+
+    <h2>Registered Users</h2>
+
+    <div class="admin-table-wrapper">
+
+        <table class="admin-table">
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Membership</th>
+            </tr>
+
+            {% for user in users %}
+
+                <tr>
+
+                    <td>
+                        {{ user.id }}
+                    </td>
+
+                    <td>
+                        {{ user.name }}
+                    </td>
+
+                    <td>
+                        {{ user.email }}
+                    </td>
+
+                    <td>
+                        {{ user.phone }}
+                    </td>
+
+                    <td>
+                        {{ user.membership }}
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <h2>Bookings</h2>
+
+    <div class="admin-table-wrapper">
+
+        <table class="admin-table">
+
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Plan</th>
+            </tr>
+
+            {% for booking in bookings %}
+
+                <tr>
+
+                    <td>
+                        {{ booking.name }}
+                    </td>
+
+                    <td>
+                        {{ booking.phone }}
+                    </td>
+
+                    <td>
+                        {{ booking.booking_date }}
+                    </td>
+
+                    <td>
+                        {{ booking.booking_type }}
+                    </td>
+
+                    <td>
+                        {{ booking.plan }}
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <h2>Reviews</h2>
+
+    {% for review in reviews %}
+
+        <div class="review-card">
+
+            <strong>
+                {{ review.name }}
+            </strong>
+
+            <p>
+                {{ "⭐" * review.rating }}
+            </p>
+
+            <p>
+                {{ review.message }}
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

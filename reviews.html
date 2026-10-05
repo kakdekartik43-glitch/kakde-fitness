@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Reviews - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="content-page">
+
+    <h1>Member Reviews ⭐</h1>
+
+    <div class="form-card">
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <select name="rating">
+
+                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="1">⭐</option>
+
+            </select>
+
+            <textarea
+                name="message"
+                placeholder="Write your review..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Submit Review
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="reviews-grid">
+
+        {% for review in reviews %}
+
+            <div class="review-card">
+
+                <h3>
+                    {{ review.name }}
+                </h3>
+
+                <p>
+                    {{ "⭐" * review.rating }}
+                </p>
+
+                <p>
+                    {{ review.message }}
+                </p>
+
+            </div>
+
+        {% else %}
+
+            <p>
+                No reviews yet. Be the first!
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

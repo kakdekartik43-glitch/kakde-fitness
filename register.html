@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="form-card">
+
+        <h1>Create Account</h1>
+
+        <p>Join Kakde Fitness today.</p>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <input
+                type="password"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
