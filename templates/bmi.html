@@ -10,9 +10,7 @@
 
         <h1>BMI Calculator</h1>
 
-        <p>
-            Enter your height and weight.
-        </p>
+        <p>Enter your height and weight.</p>
 
         <input
             type="number"
@@ -28,15 +26,16 @@
             min="1"
         >
 
-        <button onclick="calculateBMI()">
+        <button
+            type="button"
+            id="calculate-bmi-btn">
             Calculate BMI
         </button>
 
         <div id="bmi-result"></div>
 
         <small>
-            BMI is only a general screening measure and
-            is not a medical diagnosis.
+            BMI is only a general screening measure and is not a medical diagnosis.
         </small>
 
     </div>
