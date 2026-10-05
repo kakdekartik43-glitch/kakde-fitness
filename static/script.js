@@ -469,3 +469,48 @@ setTimeout(function () {
     );
 
 }, 4000);
+// =====================================================
+// BMI CALCULATOR
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const bmiButton = document.getElementById("calculate-bmi-btn");
+
+    if (!bmiButton) {
+        return;
+    }
+
+    bmiButton.addEventListener("click", function () {
+
+        const heightInput = document.getElementById("height");
+        const weightInput = document.getElementById("weight");
+        const result = document.getElementById("bmi-result");
+
+        const height = parseFloat(heightInput.value);
+        const weight = parseFloat(weightInput.value);
+
+        if (!height || !weight || height <= 0 || weight <= 0) {
+
+            result.innerHTML =
+                "<p>Please enter valid height and weight.</p>";
+
+            return;
+        }
+
+        const heightInMeters = height / 100;
+
+        const bmi =
+            weight / (heightInMeters * heightInMeters);
+
+        result.innerHTML = `
+            <h2>Your BMI: ${bmi.toFixed(1)}</h2>
+            <p>
+                BMI is a general screening measure
+                and is not a medical diagnosis.
+            </p>
+        `;
+
+    });
+
+});
