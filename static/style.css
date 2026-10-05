@@ -1138,3 +1138,272 @@ img {
         padding: 20px;
     }
 }
+/* =====================================================
+   NEW FEATURES
+===================================================== */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-btn,
+.register-btn,
+.theme-btn {
+    padding: 9px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #555;
+}
+
+.register-btn {
+    background: #f5c518;
+    color: #000;
+}
+
+.theme-btn {
+    background: #222;
+    color: white;
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form input {
+    width: 120px;
+    padding: 8px;
+}
+
+.search-form button {
+    padding: 8px;
+}
+
+
+/* Forms */
+
+.form-page,
+.calculator-page {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.form-card,
+.calculator-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    background: #181818;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea,
+.calculator-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+}
+
+.form-card textarea {
+    min-height: 120px;
+}
+
+.form-card button,
+.calculator-card button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #f5c518;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Dashboard */
+
+.dashboard-page,
+.content-page {
+    padding: 50px 7%;
+    min-height: 70vh;
+}
+
+.dashboard-grid,
+.workout-grid,
+.reviews-grid,
+.search-results {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.dashboard-card,
+.workout-card,
+.review-card,
+.search-card,
+.booking-item {
+    background: #181818;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 5px;
+    border-radius: 6px;
+    background: #f5c518;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Flash messages */
+
+.flash-container {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: opacity 0.5s;
+}
+
+.flash.success {
+    background: #1e8e3e;
+    color: white;
+}
+
+.flash.error {
+    background: #d93025;
+    color: white;
+}
+
+
+/* BMI */
+
+#bmi-result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* Admin table */
+
+.admin-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+
+/* Light Mode */
+
+body.light-mode {
+    background: #f5f5f5;
+    color: #111;
+}
+
+body.light-mode .header,
+body.light-mode .footer {
+    background: #ffffff;
+}
+
+body.light-mode .form-card,
+body.light-mode .calculator-card,
+body.light-mode .dashboard-card,
+body.light-mode .workout-card,
+body.light-mode .review-card,
+body.light-mode .search-card,
+body.light-mode .booking-item {
+    background: white;
+    color: #111;
+}
+
+body.light-mode input,
+body.light-mode select,
+body.light-mode textarea {
+    background: white;
+    color: #111;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .header-actions {
+        flex-wrap: wrap;
+    }
+
+    .search-form {
+        order: 3;
+        width: 100%;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-page,
+    .content-page {
+        padding: 30px 5%;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .login-btn,
+    .register-btn,
+    .theme-btn {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+}
