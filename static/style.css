@@ -1407,3 +1407,51 @@ body.light-mode textarea {
     }
 
 }
+/* TRAINER CARDS */
+
+.trainer-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.trainer-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.trainer-info {
+    padding: 25px;
+}
+
+.trainer-role {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.trainer-details {
+    margin: 15px 0;
+    text-align: left;
+}
+
+.trainer-details p {
+    margin: 6px 0;
+}
+
+.trainer-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .trainer-photo {
+        height: 260px;
+    }
+
+    .trainer-info {
+        padding: 20px;
+    }
+
+}
