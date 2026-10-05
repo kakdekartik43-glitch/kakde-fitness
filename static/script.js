@@ -303,3 +303,21 @@ setTimeout(function () {
     });
 
 }, 4000);
+function calculateBMI() {
+    const height = parseFloat(document.getElementById("height").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const result = document.getElementById("bmi-result");
+
+    if (!height || !weight || height <= 0 || weight <= 0) {
+        result.innerHTML = "<p>Please enter valid height and weight.</p>";
+        return;
+    }
+
+    const heightInMeters = height / 100;
+    const bmi = weight / (heightInMeters * heightInMeters);
+
+    result.innerHTML = `
+        <h2>Your BMI: ${bmi.toFixed(1)}</h2>
+        <p>BMI is a general screening measure and is not a medical diagnosis.</p>
+    `;
+}
