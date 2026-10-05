@@ -1,1 +1,48 @@
+{% extends "base.html" %}
 
+{% block title %}Login - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="form-card">
+
+        <h1>Welcome Back</h1>
+
+        <p>Login to your Kakde Fitness account.</p>
+
+        <form method="POST">
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p>
+            Don't have an account?
+            <a href="{{ url_for('register') }}">
+                Register
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
