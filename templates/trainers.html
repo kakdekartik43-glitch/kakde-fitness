@@ -5,78 +5,195 @@
 {% block content %}
 
 <!-- Page Banner -->
-
 <section class="page-banner">
     <div class="section-heading">
         <p class="section-tag">MEET OUR TEAM</p>
         <h1>OUR <span>TRAINERS</span></h1>
-        <p>Guidance for your fitness journey.</p>
+        <p>Professional guidance for your fitness journey.</p>
     </div>
 </section>
+
 
 <!-- Trainers Section -->
-
 <section class="section">
+
     <div class="section-heading">
-        <p class="section-tag">FITNESS GUIDANCE</p>
-        <h2>TRAINING <span>SUPPORT</span></h2>
+        <p class="section-tag">FITNESS EXPERTS</p>
+        <h2>MEET OUR <span>TRAINERS</span></h2>
         <p>
-            Get in touch with Kakde Fitness to learn
-            about trainer availability and guidance.
+            Our trainers provide guidance, workout support
+            and training advice for members.
         </p>
     </div>
 
-```
-<div class="card-container">
 
-    <div class="feature-card">
-        <div class="trainer-icon">🏋️</div>
-        <h3>Strength Training</h3>
-        <p>
-            Learn about strength exercises and
-            suitable workout techniques.
-        </p>
+    <div class="card-container">
+
+        <!-- Trainer 1 -->
+        <div class="feature-card trainer-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80"
+                alt="Strength Training Coach"
+                class="trainer-photo"
+            >
+
+            <div class="trainer-info">
+                <h3>Rahul Patil</h3>
+
+                <p class="trainer-role">
+                    Strength & Fitness Coach
+                </p>
+
+                <p>
+                    Experienced in strength training,
+                    workout techniques and general fitness guidance.
+                </p>
+
+                <div class="trainer-details">
+                    <p><strong>Experience:</strong> 5+ Years</p>
+                    <p><strong>Specialization:</strong> Strength Training</p>
+                </div>
+
+                <a href="{{ url_for('contact') }}" class="btn">
+                    Contact Trainer
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Trainer 2 -->
+        <div class="feature-card trainer-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80"
+                alt="Fitness Trainer"
+                class="trainer-photo"
+            >
+
+            <div class="trainer-info">
+                <h3>Akash Jadhav</h3>
+
+                <p class="trainer-role">
+                    Personal Fitness Trainer
+                </p>
+
+                <p>
+                    Helps members understand exercise techniques,
+                    training routines and gym equipment.
+                </p>
+
+                <div class="trainer-details">
+                    <p><strong>Experience:</strong> 4+ Years</p>
+                    <p><strong>Specialization:</strong> Personal Training</p>
+                </div>
+
+                <a href="{{ url_for('contact') }}" class="btn">
+                    Contact Trainer
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Trainer 3 -->
+        <div class="feature-card trainer-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80"
+                alt="Fitness Coach"
+                class="trainer-photo"
+            >
+
+            <div class="trainer-info">
+                <h3>Vishal Shinde</h3>
+
+                <p class="trainer-role">
+                    Fitness & Workout Coach
+                </p>
+
+                <p>
+                    Provides workout guidance and helps members
+                    maintain a consistent and safe training routine.
+                </p>
+
+                <div class="trainer-details">
+                    <p><strong>Experience:</strong> 3+ Years</p>
+                    <p><strong>Specialization:</strong> Fitness Guidance</p>
+                </div>
+
+                <a href="{{ url_for('contact') }}" class="btn">
+                    Contact Trainer
+                </a>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="feature-card">
-        <div class="trainer-icon">💪</div>
-        <h3>Personal Training</h3>
-        <p>
-            Ask about personal training options
-            and available guidance.
-        </p>
-    </div>
-
-    <div class="feature-card">
-        <div class="trainer-icon">🎯</div>
-        <h3>Fitness Guidance</h3>
-        <p>
-            Get guidance to help you follow
-            a consistent workout routine.
-        </p>
-    </div>
-
-</div>
-```
 
 </section>
 
-<!-- Contact Section -->
 
+<!-- Training Support -->
 <section class="section">
+
     <div class="section-heading">
-        <h2>WANT TO KNOW MORE?</h2>
+        <p class="section-tag">OUR SERVICES</p>
+        <h2>TRAINING <span>SUPPORT</span></h2>
+    </div>
+
+    <div class="card-container">
+
+        <div class="feature-card">
+            <div class="trainer-icon">🏋️</div>
+            <h3>Strength Training</h3>
+            <p>
+                Learn proper exercise techniques and
+                strength-training basics.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="trainer-icon">💪</div>
+            <h3>Personal Training</h3>
+            <p>
+                Get information about personal training
+                and trainer availability.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="trainer-icon">🎯</div>
+            <h3>Fitness Guidance</h3>
+            <p>
+                Get guidance to maintain a consistent
+                and suitable workout routine.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Contact Section -->
+<section class="section">
+
+    <div class="section-heading">
+
+        <h2>WANT TO KNOW <span>MORE?</span></h2>
+
         <p>
-            Contact the gym for information about
+            Contact Kakde Fitness to know more about
             trainers and personal training services.
         </p>
 
-```
-    <a href="{{ url_for('contact') }}" class="btn">
-        Contact Us
-    </a>
-</div>
-```
+        <a href="{{ url_for('contact') }}" class="btn">
+            Contact Us
+        </a>
+
+    </div>
 
 </section>
 
