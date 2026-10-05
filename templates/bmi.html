@@ -1,1 +1,46 @@
+{% extends "base.html" %}
 
+{% block title %}BMI Calculator - Kakde Fitness{% endblock %}
+
+{% block content %}
+
+<section class="calculator-page">
+
+    <div class="calculator-card">
+
+        <h1>BMI Calculator</h1>
+
+        <p>
+            Enter your height and weight.
+        </p>
+
+        <input
+            type="number"
+            id="height"
+            placeholder="Height in cm"
+            min="1"
+        >
+
+        <input
+            type="number"
+            id="weight"
+            placeholder="Weight in kg"
+            min="1"
+        >
+
+        <button onclick="calculateBMI()">
+            Calculate BMI
+        </button>
+
+        <div id="bmi-result"></div>
+
+        <small>
+            BMI is only a general screening measure and
+            is not a medical diagnosis.
+        </small>
+
+    </div>
+
+</section>
+
+{% endblock %}
