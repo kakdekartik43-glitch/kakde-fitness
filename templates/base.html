@@ -26,54 +26,44 @@
         KAKDE<span>FITNESS</span>
     </a>
 
+    <!-- MOBILE MENU -->
     <button class="menu-toggle"
-            id="menu-toggle">
+            id="menu-toggle"
+            type="button">
         ☰
     </button>
 
+
+    <!-- NAVIGATION -->
     <nav id="nav-menu">
 
         <a href="{{ url_for('home') }}">Home</a>
 
         <a href="{{ url_for('about') }}">About</a>
 
-        <a href="{{ url_for('facilities') }}">
-            Facilities
-        </a>
+        <a href="{{ url_for('facilities') }}">Facilities</a>
 
-        <a href="{{ url_for('plans') }}">
-            Plans
-        </a>
+        <a href="{{ url_for('plans') }}">Plans</a>
 
-        <a href="{{ url_for('trainers') }}">
-            Trainers
-        </a>
+        <a href="{{ url_for('trainers') }}">Trainers</a>
 
-        <a href="{{ url_for('gallery') }}">
-            Gallery
-        </a>
+        <a href="{{ url_for('gallery') }}">Gallery</a>
 
-        <a href="{{ url_for('bmi') }}">
-            BMI
-        </a>
+        <a href="{{ url_for('bmi') }}">BMI</a>
 
-        <a href="{{ url_for('workout') }}">
-            Workout
-        </a>
+        <a href="{{ url_for('workout') }}">Workout</a>
 
-        <a href="{{ url_for('reviews') }}">
-            Reviews
-        </a>
+        <a href="{{ url_for('reviews') }}">Reviews</a>
 
-        <a href="{{ url_for('contact') }}">
-            Contact
-        </a>
+        <a href="{{ url_for('contact') }}">Contact</a>
 
     </nav>
 
 
+    <!-- HEADER ACTIONS -->
     <div class="header-actions">
 
+        <!-- SEARCH -->
         <form action="{{ url_for('search') }}"
               method="GET"
               class="search-form">
@@ -91,6 +81,7 @@
         </form>
 
 
+        <!-- LOGIN / REGISTER -->
         {% if current_user.is_authenticated %}
 
             <a href="{{ url_for('dashboard') }}"
@@ -117,11 +108,37 @@
 
         {% endif %}
 
-        <button
-            id="theme-toggle"
-            class="theme-btn">
-            🌙
-        </button>
+
+        <!-- THEME SELECTOR -->
+        <div class="theme-selector">
+
+            <button
+                id="theme-toggle"
+                class="theme-btn"
+                type="button"
+                aria-label="Theme options">
+                🌙
+            </button>
+
+
+            <div id="theme-menu"
+                 class="theme-menu">
+
+                <button
+                    id="night-mode"
+                    type="button">
+                    🌙 Night Mode
+                </button>
+
+                <button
+                    id="light-mode"
+                    type="button">
+                    ☀️ Light Mode
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -151,6 +168,8 @@
 {% endwith %}
 
 
+<!-- MAIN CONTENT -->
+
 <main>
 
     {% block content %}
@@ -159,6 +178,8 @@
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -177,24 +198,33 @@
 </footer>
 
 
-<!-- CHATBOT -->
+<!-- =====================================================
+     AI CHATBOT
+===================================================== -->
 
 <div id="chatbot">
 
+    <!-- CHAT LABEL -->
     <div id="chat-label">
         Gym AI Agent
     </div>
 
+
+    <!-- CHAT LAUNCHER -->
     <button
         id="chat-launcher"
+        type="button"
         onclick="openChat()">
         ✦
     </button>
 
 
+    <!-- CHAT PANEL -->
     <div id="chat-panel"
          class="hidden">
 
+
+        <!-- CHAT HEADER -->
         <div id="chat-header">
 
             <div>
@@ -212,11 +242,15 @@
 
             <div class="chat-controls">
 
-                <button onclick="minimizeChat()">
+                <button
+                    type="button"
+                    onclick="minimizeChat()">
                     −
                 </button>
 
-                <button onclick="closeChat()">
+                <button
+                    type="button"
+                    onclick="closeChat()">
                     ×
                 </button>
 
@@ -225,10 +259,12 @@
         </div>
 
 
+        <!-- CHAT WINDOW -->
         <div id="chat-window">
 
             <div id="messages">
 
+                <!-- DEFAULT BOT MESSAGE -->
                 <div class="bot-message">
 
                     <div class="message-logo">
@@ -248,17 +284,24 @@
             </div>
 
 
+            <!-- QUICK QUESTIONS -->
             <div id="quick-actions">
 
-                <button onclick="askQuickQuestion('What are your membership plans?')">
+                <button
+                    type="button"
+                    onclick="askQuickQuestion('What are your membership plans?')">
                     Plans
                 </button>
 
-                <button onclick="askQuickQuestion('What are your gym timings?')">
+                <button
+                    type="button"
+                    onclick="askQuickQuestion('What are your gym timings?')">
                     Timings
                 </button>
 
-                <button onclick="askQuickQuestion('Where is your gym located?')">
+                <button
+                    type="button"
+                    onclick="askQuickQuestion('Where is your gym located?')">
                     Location
                 </button>
 
@@ -267,6 +310,7 @@
         </div>
 
 
+        <!-- CHAT INPUT -->
         <form id="chat-form">
 
             <input
@@ -286,6 +330,8 @@
 
 </div>
 
+
+<!-- JAVASCRIPT -->
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
