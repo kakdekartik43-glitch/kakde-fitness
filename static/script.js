@@ -124,3 +124,182 @@ if (chatForm) {
 function askQuickQuestion(question) {
     sendMessage(question);
 }
+// =====================================================
+// MOBILE MENU
+// =====================================================
+
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener("click", function () {
+
+        navMenu.classList.toggle("active");
+
+    });
+
+}
+
+
+// =====================================================
+// DARK / LIGHT MODE
+// =====================================================
+
+const themeButton =
+    document.getElementById("theme-toggle");
+
+if (themeButton) {
+
+    themeButton.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+            if (
+                document.body.classList.contains(
+                    "light-mode"
+                )
+            ) {
+
+                themeButton.textContent = "☀️";
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+            } else {
+
+                themeButton.textContent = "🌙";
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+            }
+
+        }
+    );
+
+}
+
+
+// Load saved theme
+
+if (
+    localStorage.getItem("theme") === "light"
+) {
+
+    document.body.classList.add(
+        "light-mode"
+    );
+
+    if (themeButton) {
+
+        themeButton.textContent = "☀️";
+
+    }
+
+}
+
+
+// =====================================================
+// BMI CALCULATOR
+// =====================================================
+
+function calculateBMI() {
+
+    const height =
+        parseFloat(
+            document.getElementById("height").value
+        );
+
+    const weight =
+        parseFloat(
+            document.getElementById("weight").value
+        );
+
+    const result =
+        document.getElementById("bmi-result");
+
+
+    if (
+        !height ||
+        !weight ||
+        height <= 0 ||
+        weight <= 0
+    ) {
+
+        result.innerHTML =
+            "Please enter valid height and weight.";
+
+        return;
+
+    }
+
+
+    const heightMeters =
+        height / 100;
+
+    const bmi =
+        weight /
+        (heightMeters * heightMeters);
+
+
+    result.innerHTML =
+        `<h2>Your BMI: ${bmi.toFixed(1)}</h2>`;
+
+
+    if (bmi < 18.5) {
+
+        result.innerHTML +=
+            "<p>General range: Underweight.</p>";
+
+    } else if (bmi < 25) {
+
+        result.innerHTML +=
+            "<p>General range: Healthy weight.</p>";
+
+    } else if (bmi < 30) {
+
+        result.innerHTML +=
+            "<p>General range: Overweight.</p>";
+
+    } else {
+
+        result.innerHTML +=
+            "<p>General range: Obesity range.</p>";
+
+    }
+
+}
+
+
+// =====================================================
+// AUTO HIDE FLASH MESSAGES
+// =====================================================
+
+setTimeout(function () {
+
+    const messages =
+        document.querySelectorAll(
+            ".flash"
+        );
+
+    messages.forEach(function (message) {
+
+        message.style.opacity = "0";
+
+        setTimeout(function () {
+
+            message.remove();
+
+        }, 500);
+
+    });
+
+}, 4000);
