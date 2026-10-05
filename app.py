@@ -28,10 +28,12 @@ app.config["SECRET_KEY"] = os.environ.get(
 
 database_url = os.environ.get("DATABASE_URL", "sqlite:///gym.db")
 
-# Some hosting platforms provide postgres://
+# Render/PostgreSQL compatibility
 if database_url.startswith("postgres://"):
     database_url = database_url.replace(
-        "postgres://", "postgresql://", 1
+        "postgres://",
+        "postgresql://",
+        1
     )
 
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
@@ -83,7 +85,10 @@ class User(UserMixin, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(
+        db.String(100),
+        nullable=False
+    )
 
     email = db.Column(
         db.String(120),
@@ -91,7 +96,10 @@ class User(UserMixin, db.Model):
         nullable=False
     )
 
-    phone = db.Column(db.String(20), nullable=False)
+    phone = db.Column(
+        db.String(20),
+        nullable=False
+    )
 
     password = db.Column(
         db.String(255),
@@ -111,11 +119,20 @@ class User(UserMixin, db.Model):
 
 class Booking(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(
+        db.String(100),
+        nullable=False
+    )
 
-    phone = db.Column(db.String(20), nullable=False)
+    phone = db.Column(
+        db.String(20),
+        nullable=False
+    )
 
     booking_date = db.Column(
         db.String(30),
@@ -140,7 +157,10 @@ class Booking(db.Model):
 
 class Review(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
     name = db.Column(
         db.String(100),
@@ -208,12 +228,35 @@ def admin_required(function):
 
 
 # =========================================================
-# CREATE DATABASE
+# DATABASE STARTUP
 # =========================================================
 
 with app.app_context():
 
-    db.create_all()
+    try:
+
+        db.create_all()
+
+        print(
+            "DATABASE CONNECTED - TABLES READY"
+        )
+
+    except Exception as error:
+
+        print(
+            "DATABASE ERROR:",
+            repr(error)
+        )
+
+
+# =========================================================
+# HEALTH CHECK
+# =========================================================
+
+@app.route("/health")
+def health():
+
+    return "OK", 200
 
 
 # =========================================================
@@ -280,7 +323,10 @@ def contact():
 # REGISTER
 # =========================================================
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route(
+    "/register",
+    methods=["GET", "POST"]
+)
 def register():
 
     if current_user.is_authenticated:
@@ -375,8 +421,28 @@ def register():
             password=hashed_password
         )
 
-        db.session.add(user)
-        db.session.commit()
+        try:
+
+            db.session.add(user)
+            db.session.commit()
+
+        except Exception as error:
+
+            db.session.rollback()
+
+            print(
+                "REGISTRATION DATABASE ERROR:",
+                repr(error)
+            )
+
+            flash(
+                "Could not create account. Please try again.",
+                "error"
+            )
+
+            return redirect(
+                url_for("register")
+            )
 
         flash(
             "Registration successful. Please login.",
@@ -396,7 +462,10 @@ def register():
 # LOGIN
 # =========================================================
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route(
+    "/login",
+    methods=["GET", "POST"]
+)
 def login():
 
     if current_user.is_authenticated:
@@ -514,9 +583,29 @@ def join_plan(plan):
             url_for("plans")
         )
 
-    current_user.membership = selected_plan
+    try:
 
-    db.session.commit()
+        current_user.membership = selected_plan
+
+        db.session.commit()
+
+    except Exception as error:
+
+        db.session.rollback()
+
+        print(
+            "MEMBERSHIP DATABASE ERROR:",
+            repr(error)
+        )
+
+        flash(
+            "Could not update membership.",
+            "error"
+        )
+
+        return redirect(
+            url_for("dashboard")
+        )
 
     flash(
         f"{selected_plan} membership selected successfully!",
@@ -532,7 +621,10 @@ def join_plan(plan):
 # FREE TRIAL / BOOKING
 # =========================================================
 
-@app.route("/booking", methods=["GET", "POST"])
+@app.route(
+    "/booking",
+    methods=["GET", "POST"]
+)
 def booking():
 
     if request.method == "POST":
@@ -581,8 +673,28 @@ def booking():
             plan=plan
         )
 
-        db.session.add(new_booking)
-        db.session.commit()
+        try:
+
+            db.session.add(new_booking)
+            db.session.commit()
+
+        except Exception as error:
+
+            db.session.rollback()
+
+            print(
+                "BOOKING DATABASE ERROR:",
+                repr(error)
+            )
+
+            flash(
+                "Could not submit booking. Please try again.",
+                "error"
+            )
+
+            return redirect(
+                url_for("booking")
+            )
 
         flash(
             "Your booking request has been submitted!",
@@ -626,7 +738,10 @@ def workout():
 # REVIEWS
 # =========================================================
 
-@app.route("/reviews", methods=["GET", "POST"])
+@app.route(
+    "/reviews",
+    methods=["GET", "POST"]
+)
 def reviews():
 
     if request.method == "POST":
@@ -650,7 +765,7 @@ def reviews():
                 )
             )
 
-        except ValueError:
+        except (ValueError, TypeError):
 
             rating = 5
 
@@ -675,8 +790,28 @@ def reviews():
             message=message
         )
 
-        db.session.add(review)
-        db.session.commit()
+        try:
+
+            db.session.add(review)
+            db.session.commit()
+
+        except Exception as error:
+
+            db.session.rollback()
+
+            print(
+                "REVIEW DATABASE ERROR:",
+                repr(error)
+            )
+
+            flash(
+                "Could not submit review.",
+                "error"
+            )
+
+            return redirect(
+                url_for("reviews")
+            )
 
         flash(
             "Thank you for your review!",
@@ -775,10 +910,12 @@ def search():
     if query:
 
         results = [
-            item for item in search_data
+            item
+            for item in search_data
             if query in (
-                item["title"] + " " +
-                item["description"]
+                item["title"]
+                + " "
+                + item["description"]
             ).lower()
         ]
 
@@ -825,7 +962,10 @@ def admin():
 # AI CHATBOT USING GROQ
 # =========================================================
 
-@app.route("/chat", methods=["POST"])
+@app.route(
+    "/chat",
+    methods=["POST"]
+)
 def chat():
 
     data = request.get_json(
@@ -1005,7 +1145,10 @@ Customer question:
 
     except Exception as error:
 
-        print("Chatbot error:", error)
+        print(
+            "Chatbot error:",
+            error
+        )
 
         return jsonify({
             "reply": "Sorry, something went wrong."
