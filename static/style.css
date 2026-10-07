@@ -1564,3 +1564,576 @@ body.light-mode select {
 .chat-controls button {
     cursor: pointer;
 }
+/* =====================================================
+   FINAL RESPONSIVE DESIGN FIX
+   LAPTOP + TABLET + MOBILE
+===================================================== */
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 12px 4%;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .header nav {
+        gap: 10px;
+    }
+
+    .header nav a {
+        font-size: 10px;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .search-form input {
+        width: 100px;
+    }
+
+    .hero {
+        padding: 80px 6%;
+    }
+
+    .about-content,
+    .contact-grid {
+        gap: 30px;
+    }
+
+    .section {
+        padding: 65px 5%;
+    }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+    /* HEADER */
+
+    .header {
+        min-height: 64px;
+        padding: 10px 15px;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        letter-spacing: .5px;
+    }
+
+
+    /* MOBILE MENU BUTTON */
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        margin-right: 8px;
+        padding: 6px 10px;
+        font-size: 21px;
+        z-index: 1001;
+    }
+
+
+    /* NAVIGATION */
+
+    .header nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        padding: 8px 15px 15px;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        background: rgba(9, 11, 9, .98);
+
+        border-bottom: 1px solid #30362d;
+
+        box-shadow: 0 10px 25px rgba(0,0,0,.35);
+
+        backdrop-filter: blur(12px);
+
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+    }
+
+    .header nav.open,
+    .header nav.active {
+        display: flex;
+    }
+
+    .header nav a {
+        width: 100%;
+
+        padding: 13px 8px;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        border-bottom: 1px solid #252a24;
+    }
+
+    .header nav a:last-child {
+        border-bottom: none;
+    }
+
+
+    /* HEADER ACTIONS */
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .search-form {
+        display: none;
+    }
+
+    .login-btn,
+    .register-btn {
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+
+    .theme-btn {
+        padding: 6px;
+        font-size: 18px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 560px;
+        padding: 70px 20px 80px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5,8,5,.94),
+                rgba(5,8,5,.72)
+            ),
+            url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200")
+            center/cover no-repeat;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 16vw, 72px);
+        line-height: .95;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-tag {
+        right: 20px;
+        bottom: 18px;
+        font-size: 9px;
+    }
+
+
+    /* GENERAL SECTIONS */
+
+    .section {
+        padding: 55px 18px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2,
+    .hours-section h2 {
+        font-size: 38px;
+    }
+
+
+    /* ABOUT */
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about-image {
+        height: 240px;
+    }
+
+    .about-text h3 {
+        font-size: 30px;
+    }
+
+    .about-text p {
+        font-size: 13px;
+    }
+
+
+    /* FACILITIES */
+
+    .facility-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .facility-card {
+        min-height: auto;
+        padding: 22px 18px;
+    }
+
+
+    /* PLANS */
+
+    .plan-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 22px;
+    }
+
+    .plan-card {
+        padding: 28px 20px;
+    }
+
+    .plan-price {
+        font-size: 35px;
+    }
+
+
+    /* TRAINERS */
+
+    .trainer-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .trainer-photo,
+    .trainer-card img {
+        height: 270px;
+    }
+
+    .trainer-info {
+        padding: 20px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .gallery-grid img {
+        height: 145px;
+    }
+
+    .gallery-item img {
+        height: 145px;
+    }
+
+
+    /* HOURS */
+
+    .hours-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+        padding: 45px 18px;
+    }
+
+    .hours-list {
+        width: 100%;
+    }
+
+    .hours-list div {
+        font-size: 11px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .map-placeholder {
+        min-height: 240px;
+    }
+
+
+    /* PAGE BANNER */
+
+    .page-banner {
+        min-height: 200px;
+        padding: 45px 18px;
+    }
+
+    .page-banner h1 {
+        font-size: clamp(42px, 14vw, 65px);
+    }
+
+    .page-banner p {
+        font-size: 12px;
+    }
+
+
+    /* FORMS */
+
+    .form-page,
+    .calculator-page {
+        min-height: 75vh;
+        padding: 35px 15px;
+    }
+
+    .form-card,
+    .calculator-card {
+        padding: 22px 18px;
+        width: 100%;
+    }
+
+    .form-card input,
+    .form-card select,
+    .form-card textarea,
+    .calculator-card input {
+        font-size: 16px;
+    }
+
+
+    /* DASHBOARD */
+
+    .dashboard-page,
+    .content-page {
+        padding: 30px 15px;
+    }
+
+    .dashboard-grid,
+    .workout-grid,
+    .reviews-grid,
+    .search-results {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dashboard-card,
+    .workout-card,
+    .review-card,
+    .search-card,
+    .booking-item {
+        padding: 20px 16px;
+    }
+
+
+    /* ADMIN TABLE */
+
+    .admin-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-table {
+        min-width: 650px;
+    }
+
+
+    /* FLASH MESSAGE */
+
+    .flash-container {
+        left: 12px;
+        right: 12px;
+        top: 75px;
+    }
+
+    .flash {
+        font-size: 12px;
+        padding: 12px 14px;
+    }
+
+
+    /* CHATBOT */
+
+    #chatbot {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    #chat-label {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+    #chat-launcher {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+
+    #chat-panel {
+        width: calc(100vw - 24px);
+        height: min(500px, calc(100vh - 90px));
+        max-width: calc(100vw - 24px);
+        border-radius: 14px;
+    }
+
+    #messages {
+        padding: 12px 10px;
+    }
+
+    .message-bubble,
+    .user-message {
+        font-size: 12px;
+        max-width: 88%;
+    }
+
+    #quick-actions {
+        gap: 5px;
+    }
+
+    #quick-actions button {
+        font-size: 10px;
+        padding: 6px 9px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 30px 15px;
+    }
+
+    .footer h2 {
+        font-size: 24px;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
+}
+
+
+/* ---------- VERY SMALL MOBILE ---------- */
+
+@media (max-width: 380px) {
+
+    .header {
+        padding: 9px 10px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .login-btn,
+    .register-btn {
+        padding: 6px 7px;
+        font-size: 9px;
+    }
+
+    .menu-toggle {
+        font-size: 19px;
+        padding: 5px 8px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img,
+    .gallery-item img {
+        height: 190px;
+    }
+
+    #chat-panel {
+        width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+        height: calc(100vh - 70px);
+    }
+
+    #chatbot {
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+
+/* ---------- LIGHT MODE MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+    body.light-mode .header nav {
+        background: rgba(255,255,255,.98);
+        border-bottom-color: #ddd;
+    }
+
+    body.light-mode .header nav a {
+        color: #222;
+        border-bottom-color: #ddd;
+    }
+
+    body.light-mode .header nav a:hover {
+        color: var(--green-dark);
+    }
+
+}
